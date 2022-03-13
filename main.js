@@ -79,7 +79,7 @@ Vue.component('product', {
     data() {
         return {
             product: 'Socks',
-            brand: 'Vue Mastery',
+            brand: 'NoName',
             description: 'A pair of warm socks',
             selectedVariant: 0,
             // inventory: 8,
