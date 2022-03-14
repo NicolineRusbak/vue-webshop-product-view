@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <div class="nav-bar"></div>
+
     <div class="cart">
       <p>Cart({{ cart.length }})</p>
     </div>

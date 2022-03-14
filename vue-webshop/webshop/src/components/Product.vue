@@ -25,22 +25,26 @@
                 <li v-for="size in sizes">{{ size }}</li>
             </ul> -->
 
-      <div
-        class="color-box"
-        v-for="(variant, index) in variants"
-        :key="variant.variantId"
-        :style="{ backgroundColor: variant.variantColor }"
-        @click="updateProduct(index)"
-      ></div>
+      <div class="flex-box">
+        <div
+          class="color-box"
+          v-for="(variant, index) in variants"
+          :key="variant.variantId"
+          :style="{ backgroundColor: variant.variantColor }"
+          @click="updateProduct(index)"
+        ></div>
+      </div>
 
-      <button
-        v-on:click="addToCart"
-        :disabled="!inStock"
-        :class="{ disabledButton: !inStock }"
-      >
-        Add to cart
-      </button>
-      <button @click="removeFromCart">Remove from cart</button>
+      <div>
+        <button
+          v-on:click="addToCart"
+          :disabled="!inStock"
+          :class="{ disabledButton: !inStock }"
+        >
+          Add to cart
+        </button>
+        <button @click="removeFromCart">Remove from cart</button>
+      </div>
     </div>
 
     <div>
@@ -60,7 +64,7 @@
 </template>
 
 <script>
-import ProductDetails from './ProductDetails.vue';
+import ProductDetails from "./ProductDetails.vue";
 // import ProductReview from './ProductReview.vue';
 // import { eventBus } from '../main.js';
 
@@ -112,7 +116,10 @@ export default {
       this.selectedVariant = index;
     },
     removeFromCart() {
-      this.$emit("remove-from-cart", this.variants[this.selectedVariant].variantId);
+      this.$emit(
+        "remove-from-cart",
+        this.variants[this.selectedVariant].variantId
+      );
     },
     addReview(ProductReview) {
       this.reviews.push(ProductReview);
